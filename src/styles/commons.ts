@@ -6,8 +6,8 @@ export const Button= styled.button<themeProps>`
   background: ${props => props.darkMode ? "black":"white"};
   color: ${props => props.darkMode ?  "white" : "palevioletred"};
   font-size: 1em;
-  margin: 0.5em;
-  padding: 0.5em;
+  margin: 1%;
+  padding: 1%;
   border: 2px solid palevioletred;
   border-radius: 3px;
 
@@ -43,4 +43,17 @@ display:flex;
 flex-direction: column;
 align-content:center;
 align-items:center;
+`;
+
+export const LandingPageDisplay = styled.div`
+display:flex;
+flex-direction: column;
+align-content:center;
+align-items:center;
+`;
+
+export const HeadingStyle = styled.h1`
+padding: 60px;
+text-align: center;
+font-size: 30px;
 `;

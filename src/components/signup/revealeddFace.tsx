@@ -8,7 +8,7 @@ import { Button,LoginContainer,Input } from "../../styles/commons";
 
 export const RevealedFace: FC = ()=> {
 
-   const {loginUser} = useLogin();
+   const {signupUser} = useLogin();
    const {
       register,
       handleSubmit,
@@ -19,11 +19,11 @@ export const RevealedFace: FC = ()=> {
       console.log("ERROR: ", errors[FormConstants.email]?.message || errors[FormConstants.password]?.message);
     },[errors]);
    return( <LoginContainer darkMode={false}> 
-         <form onSubmit={handleSubmit((d) => loginUser(d[FormConstants.email],d[FormConstants.password]))}>
+         <form onSubmit={handleSubmit((d) => signupUser(d[FormConstants.email],d[FormConstants.password]))}>
 
          <Input  darkMode={false} {...register(FormConstants.email)}></Input>
          <Input  darkMode={false} {...register(FormConstants.password)}></Input>
-         <Button darkMode={false} > Login </Button> 
+         <Button darkMode={false} > Signup </Button> 
          </form>
       </LoginContainer>);
 }

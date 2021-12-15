@@ -1,12 +1,16 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import {LoginPage} from "./pages/login";
+import {Landing} from "./pages/landing";
+import Amplify from "aws-amplify";
 import {ContextProvider} from "./common/appContext";
+import config from "./aws-exports";
+
+Amplify.configure(config);
 function App() {
   return (
     <div >
       <Router>
         <ContextProvider>
-         <Route path="/" component={LoginPage}></Route>
+         <Route path="/" component={Landing}></Route>
         </ContextProvider>
       </Router>
     </div>

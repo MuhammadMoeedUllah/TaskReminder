@@ -1,22 +1,24 @@
-import { FC, Fragment, useState } from "react";
-import {loginState, loginInitFaceProps} from "../common/constants";
+import { FC, useState } from "react";
+import {authButtonState } from "../common/constants";
 import {authProps,authTypes} from "../common/types";
 import { Login } from "./login";
 import {LoginPageDisplay} from "../styles/commons"
+import { Signup } from "./signup";
 export const Authentication: FC<authProps> = (authdescription)=>{
-    const [loginVisbility , setLoginVisibility ] = useState(loginState);
-    const revealFace = ()=>{
-        console.log("FACE IS NOW REVEALED");
-        setLoginVisibility({isLoggedin:false,revealFace:true});
+    const [loginVisbility , setLoginVisibility ] = useState(authButtonState);
+    const revealLoginFace = ()=>{
+        setLoginVisibility({revealLogin:true});
     };
-    loginInitFaceProps.isRevealed = loginVisbility.revealFace;
-    loginInitFaceProps.revealFace =revealFace;
-
+    const revealSignupFace = ()=>{
+        setLoginVisibility({revealSignup:true});
+    };
+    
     const authComponant = ()=>{
         switch (authdescription.component) {
             case authTypes.login:
-                return <Login {...loginInitFaceProps}/>;
-
+                return <Login isRevealed={loginVisbility.revealLogin||false} revealFace={revealLoginFace}/>;
+            case authTypes.signup:
+                return <Signup isRevealed={loginVisbility.revealSignup || false} revealFace={revealSignupFace}/>
         }
     }
 

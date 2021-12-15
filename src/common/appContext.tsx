@@ -10,6 +10,7 @@ export const ContextProvider :FC = (props) => {
         loggedIn: MyContext.loggedIn,
         email:MyContext.email,
         uid:MyContext.uid,
+        userConfirmed:MyContext.userConfirmed,
         updateContext: SetMyContext,
     };
     return <appContxt.Provider value={value}> {props.children}</appContxt.Provider>
